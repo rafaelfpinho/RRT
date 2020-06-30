@@ -10,13 +10,14 @@ GeoPoint = collections.namedtuple('GeoPoint', 'latitude, longitude, altitude')
 CartesianPoint = collections.namedtuple('CartesianPoint', 'x, y, z')
 
 graph = True					#Mostra graficamente a rota e obstaculos se setado em True, caso contrário setar como False
+
+#Paarametros do algoritmo
 XDIM = 200
 YDIM = 200
 SIZEX = 0.1
 SIZEY = 0.1
 k = 0.1
 WINSIZE = [2*XDIM, 2*YDIM]
-#JUMP = 7.0
 JUMP = 5.0
 RADIUS = 10.0
 NEIGHBORHOOD = 10.0
@@ -26,11 +27,16 @@ black = 20, 20, 40
 red = 255, 0, 0
 green = 15, 220, 182
 home = GeoPoint(-12.825397,-50.349937,0)
-execution_time = 10
-MAPNUMBER = "05"
+execution_time = 10				#Duration of algorithym
 
 
 
+
+#Escolha de que mapa será usado
+MAPNUMBER = "24"
+
+
+#Node class for rrt
 class Node():
 	def __init__(self,point,parent,cost):
 		self.point = point
@@ -63,7 +69,7 @@ def dist(p1,p2):
 	return sqrt((p1[0]-p2[0])*(p1[0]-p2[0])+(p1[1]-p2[1])*(p1[1]-p2[1]))
 
 
-
+#Creates a point inside a line from two other points
 def step_from_to(p1,p2):
 	if dist(p1,p2) < JUMP:
 		return p2
@@ -72,12 +78,13 @@ def step_from_to(p1,p2):
 		return p1[0] + JUMP*cos(theta), p1[1] + JUMP*sin(theta)
 
 
-
+#main function that does the code
 def main():
 
 	map_file = "maps/"+MAPNUMBER+".sgl"
+	map_file = "JSON/map_"+MAPNUMBER+".json"
+	obstacles = map_json(map_file)
 
-	obstacles = map_sgl(map_file)
 	
 	initPoint = (0,0)
 	goalPoint = (0,-10)
@@ -95,12 +102,9 @@ def main():
 		for l in range(len(obstacles[j])):
 			obstacles[j][l] = ((obstacles[j][l][0]-distx)/SIZEX,(obstacles[j][l][1]-disty)/SIZEY)
 			obs_graph.append( (int(obstacles[j][l][0]+(XDIM)),int(obstacles[j][l][1]+(YDIM))) ) 
-			#obstacles[j][l] = ((abs(x0-obstacles[j][l][0])*(-k)+initPoint[0]),(abs(y0-obstacles[j][l][1])*(-k)+initPoint[1]))
 		obs.append(obs_graph)
 		obs_graph = []
 
-	#print("obstacles2:")
-	#print(obstacles)
 
 
 	print("inicio "+str(initPoint[0])+" , "+str(initPoint[1]))
@@ -120,10 +124,10 @@ def main():
 
 	init = time.time()
 	nodes = []
-	initNode = Node(initPoint,None,0)
-	bestNode = Node((0,0),None,9999999)
+	initNode = Node(initPoint,None,0)	#initializes initial node
+	bestNode = Node((0,0),None,9999999)	#initializes best node
 	node1 = Node((0,0),None,dist(initNode.get_point(),(0,0)))
-	nodes.append(initNode)
+	nodes.append(initNode)				#Puts initial node in the start of the tree
 
 	for i in range(NUMNODES):
 		#rand = random.random()*XDIM*pos_neg() , random.random()*YDIM*pos_neg()
@@ -208,8 +212,9 @@ def main():
 			text = str(result[0][0])+"  "+str(result[0][1])
 			arquivo.close()
 		
-			#create_route(result)
 			break
+
+		#prints if path is not found in time
 		elif((fim-init)>execution_time):
 			print("Caminho não encontrado")
 			break
@@ -260,14 +265,16 @@ def to_cartesian(geo_point, home):
 	#return CartesianPoint(x, y, geo_point.altitude)
 	return (x,y)
 
+#calculates y from geo reference
 def calc_y(lat, lat_):
 	return (lat - lat_) * (10000000.0 / 90)
 
-
+#calculates x from geo reference
 def calc_x(longi, longi_, lat_):
 	pi = math.pi
 	return (longi - longi_) * (6400000.0 * (math.cos(lat_ * pi / 180) * 2 * pi / 360)) # ToDo: verificar math
 
+#converts cartesian to geographic
 def to_geo_point(cartesian_point, home):
 	longitude_x = calc_longitude_x(home.latitude, home.longitude, cartesian_point.x)
 	latitude_y = calc_latitude_y(home.latitude, cartesian_point.y)
@@ -284,8 +291,7 @@ def calc_longitude_x(lat_, longi_, x):
 
 
 
-	mapa.close()
-	return coordinates
+
 
 def pos_neg():
 	aleatorio = random.random()
@@ -300,19 +306,18 @@ def map_json(map_file):
 	content = mapa.read()
 	y = json.loads(content)
 	coordinates = []
-	x = json.dumps(y[0]["areas_nao_navegaveis"])
+	x = json.dumps(y["areas_nao_navegaveis"])
 	z = json.loads(x)
 
 	for i in range(len(z)):
-		coordinates.append(z[i]["geo_points"])
+		coordinates.append(z[i]["cartesian_points"])
 
 	for l in range(len(coordinates)):
 		for m in range(len(coordinates[l])):
-			aux = coordinates[l][m][0]
-			coordinates[l][m][0] = coordinates[l][m][1]
+			aux = coordinates[l][m][1]
+			coordinates[l][m][0] = coordinates[l][m][0]
 			coordinates[l][m][1] = aux
 			del(coordinates[l][m][2])
-			coordinates[l][m] = to_cartesian(coordinates[l][m],home)
 
 	mapa.close()
 	return coordinates
