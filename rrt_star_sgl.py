@@ -34,7 +34,7 @@ execution_time = 10				#Duration of algorithym in seconds
 
 
 #Escolha de que mapa será usado
-MAPNUMBER = "26"
+MAPNUMBER = "50"
 
 
 #Node class for rrt
