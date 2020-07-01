@@ -12,7 +12,10 @@ import json
 GeoPoint = collections.namedtuple('GeoPoint', 'latitude, longitude, altitude')
 CartesianPoint = collections.namedtuple('CartesianPoint', 'x, y, z')
 
-graph = False
+#Mostra graficamente a rota e obstaculos se setado em True, caso contrário setar como False
+graph = False							
+
+#Paarametros do algoritmo
 XDIM = 600
 YDIM = 600
 ZDIM = 30
@@ -34,7 +37,7 @@ home = GeoPoint(-12.825397,-50.349937,0)
 execution_time = 10
 #home = GeoPoint(-22.002178,-47.932588,847.142652)
 
-
+#Node class for rrt
 class Node():
 	def __init__(self,point,parent,cost):
 		self.point = point
@@ -69,11 +72,12 @@ class Node():
 def dist(p1,p2):
 	return sqrt((p1[0]-p2[0])*(p1[0]-p2[0])+(p1[1]-p2[1])*(p1[1]-p2[1]))
 
+#Distance between two points in 3 dimensions
 def dist_3d(p1,p2):
 	return sqrt((p1[0]-p2[0])*(p1[0]-p2[0])+(p1[1]-p2[1])*(p1[1]-p2[1])+(p1[2]-p2[2])*(p1[2]-p2[2]))
 
 
-
+#Creates a point inside a line from two other points
 def step_from_to(p1,p2):
 	if dist(p1,p2) < JUMP:
 		return p2
@@ -81,6 +85,7 @@ def step_from_to(p1,p2):
 		theta = atan2(p2[1]-p1[1],p2[0]-p1[0])
 		return p1[0] + JUMP*cos(theta), p1[1] + JUMP*sin(theta)
 
+#Creates a point inside a line from two other points in 3 dimensions
 def step_from_to_3d(p1,p2):
 	if dist_3d(p1,p2) < JUMP:
 		return p2
@@ -90,11 +95,11 @@ def step_from_to_3d(p1,p2):
 		return p1[0] + JUMP*sin(theta)*cos(alfa) , p1[1] + JUMP*sin(theta)*sin(alfa) , p1[2] + JUMP*cos(theta)
 
 
-
+#main function that does the code
 def main():
 
 
-
+	#Gets start and goal points from parameters
 	param = sys.argv[1:]
 
 	initPoint = [float(param[0]),float(param[1]),float(param[2])]
@@ -102,17 +107,18 @@ def main():
 
 	goal = [param[3],param[4],param[5]]
 
+	#gets obstacles from map file
 	map_file = param[6]
-
 	obstacles = map_json(map_file)
 
 	print("geograficas inciais: "+str(initPoint[0])+" "+str(initPoint[1])+" "+str(initPoint[2]))
 	print("geograficas finais: "+str(goalPoint[0])+" "+str(goalPoint[1])+" "+str(goalPoint[2]))
 	
+	#Transforms start and goal points into cartesian
 	initPoint = to_cartesian_3d(initPoint,home)
 	goalPoint = to_cartesian_3d(goalPoint,home)
 
-	
+	#Moves start and goal points to fit in search space
 	distx = initPoint[0]
 	disty = initPoint[1]
 	initPoint  = ((initPoint[0] - distx)/SIZEX,(initPoint[1] - disty)/SIZEY,initPoint[2])
@@ -120,7 +126,7 @@ def main():
 
 	obs_graph = []
 	obs = []
-
+	#Moves obstacles to fit in search space
 	for j in range(len(obstacles)):
 		for l in range(len(obstacles[j])):
 			obstacles[j][l] = ((obstacles[j][l][0]-distx)/SIZEX,(obstacles[j][l][1]-disty)/SIZEY)
@@ -128,8 +134,6 @@ def main():
 		obs.append(obs_graph)
 		obs_graph = []
 
-	#print("obstacles2:")
-	#print(obstacles)
 
 
 	print("inicio "+str(initPoint[0])+" , "+str(initPoint[1])+" , "+str(initPoint[2]))
@@ -143,7 +147,6 @@ def main():
 		pygame.draw.circle(screen,red,(int(initPoint[0]+(XDIM)),int(initPoint[1])+(YDIM)),2,2)
 		pygame.draw.circle(screen,red,(int(goalPoint[0]+(XDIM)),int(goalPoint[1])+(YDIM)),int(RADIUS),int(RADIUS))
 		for i in range(len(obstacles)):
-			#print "obstacle = ",obstacles[i]
 			pygame.draw.polygon(screen,green,obs[i])
 		pygame.display.update()
 
@@ -154,9 +157,11 @@ def main():
 	node1 = Node((0,0),None,dist(initNode.get_point(),(0,0)))
 	nodes.append(initNode)
 
+
+	#Start of RRT
 	for i in range(NUMNODES):
-		#print("funciona")
-		#rand = random.random()*XDIM*pos_neg() , random.random()*YDIM*pos_neg()
+
+		#gest random point
 		rand = (random.random()*XDIM*2)-XDIM , (random.random()*YDIM*2)-YDIM , random.random()*ZDIM
 		nn = nodes[0]
 		for p in nodes:
@@ -173,11 +178,6 @@ def main():
 		for q in range(len(obstacles)):
 			if not_colides(node1.get_x(),node1.get_y(),node1.get_z(),obstacles[q]):
 				colision = colision+1
-				'''node1 = Node(newnode,nn)
-				nodes.append(node1)
-				if graph:
-					pygame.draw.line(screen,white,nn.get_point(),newnode)
-					pygame.display.update()'''
 		if colision >= len(obstacles) or node1.get_z()>10:
 			nodes.append(node1)
 			if dist(node1.get_point(),goalPoint) < RADIUS:
@@ -197,6 +197,7 @@ def main():
 					sys.exit("Leaving because you requested it.")
 
 		fim = time.time()
+		#Runs the code for the time set 
 		if dist(bestNode.get_point(),goalPoint) < RADIUS and (fim-init)>execution_time:
 			linhas = []
 			print("custo ideal: "+str(dist(initPoint,goalPoint)))
@@ -208,12 +209,10 @@ def main():
 			arquivo.write(text)
 			
 			while bestNode.get_parent() != None:
-				#point = CartesianPoint(abs(bestNode.get_x()-initPoint[0])*(-1/k)+x0,abs(bestNode.get_y()-initPoint[1])*(-1/k)+y0,15)
 				point = CartesianPoint( (bestNode.get_x()*SIZEX)+distx, (bestNode.get_y()*SIZEY)+disty , bestNode.get_z())
 				point = to_geo_point(point,home)
 				text = str(round(point[1],9))+"  "+str(round(point[0],9))+"         "+str(round(point[2],9))+"\n"
 				linhas.append(text)
-				#arquivo.write(text)
 				result = []
 				result.append(point)
 
@@ -224,19 +223,17 @@ def main():
 						pygame.draw.line(screen,[255, 0 , 0],bestNode.get_point(),aux.get_point())
 						pygame.display.update()
 			text = goal[0]+"  "+goal[1]+"         "+goal[2]+"\n"
-			#text = goal[0]+"  "+goal[1]+"  "+goal[2]
 			linhas.append(text)
 			if graph:
 				time.sleep(3)
 
+			#Writes in file
 			for w in range(1,len(linhas)):
 				arquivo.write(linhas[len(linhas)-1-w])
 				
 
 			text = str(result[0][0])+"  "+str(result[0][1])+"         15.000"
 			arquivo.close()
-		
-			#create_route(result)
 			break
 		elif((fim-init)>execution_time):
 			print("Caminho não encontrado")
@@ -277,10 +274,7 @@ def not_colides(x,y,z,poly):
 					if p1x == p2x or x <= xints:
 						inside = not inside
 		p1x,p1y = p2x,p2y
-		#print("aqui")
-		#inside = not inside
-	#if not inside:
-		#print "colidiu"
+
 	return inside
 
 
@@ -334,7 +328,7 @@ def pos_neg():
 	else:
 		return -1
 
-
+#Reads json map file
 def map_json(map_file):
 	mapa = open(map_file,'r')
 	content = mapa.read()

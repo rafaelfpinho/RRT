@@ -9,7 +9,8 @@ import json
 GeoPoint = collections.namedtuple('GeoPoint', 'latitude, longitude, altitude')
 CartesianPoint = collections.namedtuple('CartesianPoint', 'x, y, z')
 
-graph = True					#Mostra graficamente a rota e obstaculos se setado em True, caso contrário setar como False
+#Mostra graficamente a rota e obstaculos se setado em True, caso contrário setar como False
+graph = False					
 
 #Paarametros do algoritmo
 XDIM = 200
@@ -27,13 +28,13 @@ black = 20, 20, 40
 red = 255, 0, 0
 green = 15, 220, 182
 home = GeoPoint(-12.825397,-50.349937,0)
-execution_time = 10				#Duration of algorithym
+execution_time = 10				#Duration of algorithym in seconds
 
 
 
 
 #Escolha de que mapa será usado
-MAPNUMBER = "24"
+MAPNUMBER = "26"
 
 
 #Node class for rrt
@@ -81,15 +82,16 @@ def step_from_to(p1,p2):
 #main function that does the code
 def main():
 
+	#gets obstacles from map file
 	map_file = "maps/"+MAPNUMBER+".sgl"
 	map_file = "JSON/map_"+MAPNUMBER+".json"
 	obstacles = map_json(map_file)
 
-	
+	#Initializes start and end point
 	initPoint = (0,0)
 	goalPoint = (0,-10)
 
-	
+	#Transformada cartesiana para que o mapa caiba no espaço de busca do algoritmo
 	distx = initPoint[0]
 	disty = initPoint[1]
 	initPoint  = ((initPoint[0] - distx)/SIZEX,(initPoint[1] - disty)/SIZEY)
@@ -98,6 +100,7 @@ def main():
 	obs_graph = []
 	obs = []
 
+	#Trasnformada cartesiana dos obstáculos
 	for j in range(len(obstacles)):
 		for l in range(len(obstacles[j])):
 			obstacles[j][l] = ((obstacles[j][l][0]-distx)/SIZEX,(obstacles[j][l][1]-disty)/SIZEY)
