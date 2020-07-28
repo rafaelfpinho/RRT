@@ -34,7 +34,7 @@ execution_time = 10				#Duration of algorithym in seconds
 
 
 #Escolha de que mapa será usado
-MAPNUMBER = "50"
+MAPNUMBER = "01"
 
 
 #Node class for rrt
@@ -357,7 +357,26 @@ def map_sgl(map_file):
 	mapa.close()
 	return obstacles
 
- 
+def dentro_fora(poligono, ponto):
+	dentro = 0
+	fora = 1
+	for i in range(len(poligono)-1):
+		h = vetor_normal(poligono[i],poligono[i+1])
+		b = produto_escalar(h,poligono[i])
+		if(b < produto_escalar(h,ponto)):
+			return dentro
+	return fora
+
+def produto_escalar(v1, v2):
+	return v1[0]*v2[0] + v1[1]*v2[1]
+
+def vetor_normal(p1, p2):
+	vetor = [p2[0]-p1[0],p2[1]-p1[1]]
+	matriz_rotacao = [[0,-1],[1,0]]
+	a = [-vetor[1],vetor[0]]
+	versor_a = math.sqrt(a[0]**2 + a[1]**2)
+	h = [a[0]/versor_a,a[1]/versor_a]
+	return h
 
 if __name__ == '__main__':
 	main()

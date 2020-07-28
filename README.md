@@ -4,7 +4,7 @@ Como executar os código
 
 RRT estrela 2d:
 
-$python3 ~/rrt/rrt_star_sgl
+$python3 ~/rrt/rrt_star_sgl.py
 
 RRT estrela 3d:
 
