@@ -10,7 +10,7 @@ GeoPoint = collections.namedtuple('GeoPoint', 'latitude, longitude, altitude')
 CartesianPoint = collections.namedtuple('CartesianPoint', 'x, y, z')
 
 #Mostra graficamente a rota e obstaculos se setado em True, caso contrário setar como False
-graph = False					
+graph = True					
 
 #Paarametros do algoritmo
 XDIM = 200
@@ -34,7 +34,7 @@ execution_time = 10				#Duration of algorithym in seconds
 
 
 #Escolha de que mapa será usado
-MAPNUMBER = "01"
+MAPNUMBER = "06"
 
 
 #Node class for rrt
@@ -148,26 +148,20 @@ def main():
 				node1.set_cost(t.get_cost()+dist(node1.get_point(),t.get_point()))
 		colision = 0
 		for q in range(len(obstacles)):
+			'''if(dentro_fora(obstacles[q],node1.get_point())):
+				colision = colision+1'''
 			if not_colides(node1.get_x(),node1.get_y(),obstacles[q]):
 				colision = colision+1
-				'''node1 = Node(newnode,nn)
-				nodes.append(node1)
+				'''
 				if graph:
 					pygame.draw.line(screen,white,nn.get_point(),newnode)
 					pygame.display.update()'''
 		if colision >= len(obstacles):
-			'''node1 = Node(newnode,nn,nn.get_cost()+dist(newnode,nn.get_point()))
-			for t in nodes:
-				if dist(t.get_point(),node1.get_point())<NEIGHBORHOOD and node1.get_cost()>t.get_cost()+dist(node1.get_point(),t.get_point()):
-					node1.set_parent(t)
-					node1.set_cost(t.get_cost()+dist(node1.get_point(),t.get_point()))
-			'''
 			nodes.append(node1)
 			if dist(node1.get_point(),goalPoint) < RADIUS:
 				if node1.get_cost()<bestNode.get_cost():
 					bestNode = node1
 					print("custo: "+str(bestNode.get_cost()))
-
 			'''if graph:
 				#pygame.draw.line(screen,white,(int(nn.get_x()+(XDIM)),int(nn.get_y()+(YDIM))),(int(newnode[0]+(XDIM)),int(newnode[1]+(YDIM))))
 				pygame.display.update()'''
@@ -358,8 +352,8 @@ def map_sgl(map_file):
 	return obstacles
 
 def dentro_fora(poligono, ponto):
-	dentro = 0
-	fora = 1
+	dentro = 1
+	fora = 0
 	for i in range(len(poligono)-1):
 		h = vetor_normal(poligono[i],poligono[i+1])
 		b = produto_escalar(h,poligono[i])
