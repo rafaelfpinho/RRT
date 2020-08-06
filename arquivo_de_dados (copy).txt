@@ -1,0 +1,855 @@
+mapa 0
+teste 1
+custo: 131.58768326580034
+tempo primeira rota:
+0.5316879749298096
+tempo melhor rota:
+70.37568545341492
+teste 2
+custo: 125.21834703487711
+tempo primeira rota:
+0.9209535121917725
+tempo melhor rota:
+2.331998586654663
+teste 3
+custo: 118.86036999706826
+tempo primeira rota:
+8.578536748886108
+tempo melhor rota:
+119.43544149398804
+mapa 1
+teste 1
+custo: 182.3811891433503
+tempo primeira rota:
+2.0315182209014893
+tempo melhor rota:
+2.0315182209014893
+teste 2
+custo: 137.748072086879
+tempo primeira rota:
+3.9017980098724365
+tempo melhor rota:
+150.59471130371094
+teste 3
+custo: 160.9939838232965
+tempo primeira rota:
+5.493860721588135
+tempo melhor rota:
+155.30232167243958
+mapa 2
+teste 1
+custo: 106.59062610305207
+tempo primeira rota:
+0.05707049369812012
+tempo melhor rota:
+3.8974528312683105
+teste 2
+custo: 211.15775724893552
+tempo primeira rota:
+6.071966171264648
+tempo melhor rota:
+25.274527072906494
+teste 3
+custo: 179.17049264828847
+tempo primeira rota:
+5.310617685317993
+tempo melhor rota:
+96.76271533966064
+mapa 4
+teste 1
+custo: 311.9455682872243
+tempo primeira rota:
+9.09316349029541
+tempo melhor rota:
+58.53145217895508
+teste 2
+custo: 105.59583754672462
+tempo primeira rota:
+0.034924983978271484
+tempo melhor rota:
+25.19377589225769
+teste 3
+custo: 116.24490106405219
+tempo primeira rota:
+0.07397198677062988
+tempo melhor rota:
+21.866060733795166
+mapa 5
+teste 1
+custo: 134.8782726225896
+tempo primeira rota:
+1.7744128704071045
+tempo melhor rota:
+157.1144073009491
+teste 2
+custo: 141.1142824146639
+tempo primeira rota:
+1.523231029510498
+tempo melhor rota:
+174.8096911907196
+teste 3
+custo: 193.06608452513348
+tempo primeira rota:
+8.26077127456665
+tempo melhor rota:
+8.26077127456665
+mapa 6
+teste 1
+custo: 174.8275730391302
+tempo primeira rota:
+4.229201078414917
+tempo melhor rota:
+97.78110861778259
+teste 2
+custo: 163.66249324951073
+tempo primeira rota:
+0.9034147262573242
+tempo melhor rota:
+125.42734885215759
+teste 3
+custo: 172.6964667453272
+tempo primeira rota:
+2.624478578567505
+tempo melhor rota:
+112.83276462554932
+mapa 7
+teste 1
+custo: 115.1816553974188
+tempo primeira rota:
+2.791306495666504
+tempo melhor rota:
+158.80751419067383
+teste 2
+custo: 207.28038108364115
+tempo primeira rota:
+1.2138705253601074
+tempo melhor rota:
+165.44003129005432
+teste 3
+custo: 144.7059169403089
+tempo primeira rota:
+5.877166032791138
+tempo melhor rota:
+104.18020057678223
+mapa 8
+teste 1
+custo: 118.08156769829573
+tempo primeira rota:
+6.415306806564331
+tempo melhor rota:
+154.85524916648865
+teste 2
+custo: 107.77437221428485
+tempo primeira rota:
+1.9981071949005127
+tempo melhor rota:
+156.10181093215942
+teste 3
+custo: 202.33348979986417
+tempo primeira rota:
+0.9459798336029053
+tempo melhor rota:
+92.84352445602417
+mapa 9
+teste 1
+custo: 130.89591888726687
+tempo primeira rota:
+2.156775951385498
+tempo melhor rota:
+144.466322183609
+teste 2
+custo: 112.7447027381061
+tempo primeira rota:
+0.08062505722045898
+tempo melhor rota:
+2.999647855758667
+teste 3
+custo: 127.4512843285451
+tempo primeira rota:
+9.017208814620972
+tempo melhor rota:
+120.69825625419617
+mapa 10
+teste 1
+custo: 118.53836305266697
+tempo primeira rota:
+0.0188601016998291
+tempo melhor rota:
+34.64709210395813
+teste 2
+custo: 113.39027576813953
+tempo primeira rota:
+0.18229985237121582
+tempo melhor rota:
+105.3436815738678
+teste 3
+custo: 239.60152605806138
+tempo primeira rota:
+3.5838985443115234
+tempo melhor rota:
+75.89329195022583
+mapa 11
+teste 1
+custo: 128.20089910798444
+tempo primeira rota:
+0.07099509239196777
+tempo melhor rota:
+85.7663004398346
+teste 2
+custo: 238.67262622124946
+tempo primeira rota:
+0.7260911464691162
+tempo melhor rota:
+158.35755467414856
+teste 3
+custo: 108.78400074530673
+tempo primeira rota:
+10.24614953994751
+tempo melhor rota:
+83.33715176582336
+mapa 12
+teste 1
+custo: 113.35924057716497
+tempo primeira rota:
+1.4680569171905518
+tempo melhor rota:
+155.22665858268738
+teste 2
+custo: 171.47437289006717
+tempo primeira rota:
+3.694474697113037
+tempo melhor rota:
+120.6699481010437
+teste 3
+custo: 124.72590516767539
+tempo primeira rota:
+0.25649356842041016
+tempo melhor rota:
+125.5460786819458
+mapa 13
+teste 1
+custo: 107.13399461827925
+tempo primeira rota:
+0.09190940856933594
+tempo melhor rota:
+0.09190940856933594
+teste 2
+custo: 188.88490303603464
+tempo primeira rota:
+3.616140365600586
+tempo melhor rota:
+39.11834692955017
+teste 3
+custo: 168.36208282494889
+tempo primeira rota:
+3.216637372970581
+tempo melhor rota:
+172.0104033946991
+mapa 14
+teste 1
+custo: 123.15826831637824
+tempo primeira rota:
+3.963573455810547
+tempo melhor rota:
+166.51381421089172
+teste 2
+custo: 109.72393720207538
+tempo primeira rota:
+20.948813915252686
+tempo melhor rota:
+45.925246477127075
+teste 3
+custo: 186.25126139350084
+tempo primeira rota:
+1.6125192642211914
+tempo melhor rota:
+161.74285221099854
+mapa 15
+teste 1
+custo: 319.17893065190646
+tempo primeira rota:
+1.8416330814361572
+tempo melhor rota:
+1.8416330814361572
+teste 2
+custo: 155.01462489168645
+tempo primeira rota:
+1.8180711269378662
+tempo melhor rota:
+21.297978401184082
+teste 3
+custo: 133.1727050900267
+tempo primeira rota:
+3.2819056510925293
+tempo melhor rota:
+176.15278553962708
+mapa 16
+teste 1
+custo: 162.1022549782945
+tempo primeira rota:
+5.258424758911133
+tempo melhor rota:
+112.60428738594055
+teste 2
+custo: 236.25268538027262
+tempo primeira rota:
+6.295844078063965
+tempo melhor rota:
+152.38075065612793
+teste 3
+custo: 128.3470158424666
+tempo primeira rota:
+0.37735462188720703
+tempo melhor rota:
+116.02508330345154
+mapa 17
+teste 1
+custo: 124.98208333248742
+tempo primeira rota:
+1.9913277626037598
+tempo melhor rota:
+119.41923880577087
+teste 2
+custo: 110.13798629532025
+tempo primeira rota:
+2.4514272212982178
+tempo melhor rota:
+17.12871527671814
+teste 3
+custo: 108.05642554925151
+tempo primeira rota:
+0.03676128387451172
+tempo melhor rota:
+179.43130254745483
+mapa 18
+teste 1
+custo: 119.77680585404286
+tempo primeira rota:
+0.06633281707763672
+tempo melhor rota:
+0.06633281707763672
+teste 2
+custo: 174.13345968387355
+tempo primeira rota:
+0.2747383117675781
+tempo melhor rota:
+159.44649052619934
+teste 3
+custo: 115.00328427398657
+tempo primeira rota:
+7.167565584182739
+tempo melhor rota:
+107.01951265335083
+mapa 19
+teste 1
+custo: 120.16859091277885
+tempo primeira rota:
+1.77651047706604
+tempo melhor rota:
+175.2252299785614
+teste 2
+custo: 176.80472242886174
+tempo primeira rota:
+1.2428827285766602
+tempo melhor rota:
+148.90655779838562
+teste 3
+custo: 116.58063173913217
+tempo primeira rota:
+3.5690886974334717
+tempo melhor rota:
+40.690664529800415
+mapa 20
+teste 1
+custo: 166.77437259179388
+tempo primeira rota:
+3.889446973800659
+tempo melhor rota:
+61.694368839263916
+teste 2
+custo: 134.56857207143926
+tempo primeira rota:
+2.3398849964141846
+tempo melhor rota:
+110.95773673057556
+teste 3
+custo: 118.63216140302417
+tempo primeira rota:
+2.6738250255584717
+tempo melhor rota:
+111.68716359138489
+mapa 21
+teste 1
+custo: 117.8471385852615
+tempo primeira rota:
+0.991121768951416
+tempo melhor rota:
+59.666770935058594
+teste 2
+custo: 109.772604606543
+tempo primeira rota:
+0.024346351623535156
+tempo melhor rota:
+0.024346351623535156
+teste 3
+custo: 114.91861990737789
+tempo primeira rota:
+1.6510376930236816
+tempo melhor rota:
+141.35526514053345
+mapa 22
+teste 1
+custo: 267.72020393204184
+tempo primeira rota:
+2.1327428817749023
+tempo melhor rota:
+149.65604281425476
+teste 2
+custo: 137.11556244431839
+tempo primeira rota:
+13.716447591781616
+tempo melhor rota:
+62.496673822402954
+teste 3
+custo: 123.90747907934453
+tempo primeira rota:
+7.817680597305298
+tempo melhor rota:
+28.763449668884277
+mapa 23
+teste 1
+custo: 129.3340001177212
+tempo primeira rota:
+3.227586507797241
+tempo melhor rota:
+49.70165801048279
+teste 2
+custo: 127.83547854260114
+tempo primeira rota:
+7.286922216415405
+tempo melhor rota:
+173.6188929080963
+teste 3
+custo: 129.10156284851868
+tempo primeira rota:
+0.04711270332336426
+tempo melhor rota:
+167.01877784729004
+mapa 24
+teste 1
+custo: 235.04023590828626
+tempo primeira rota:
+4.887785911560059
+tempo melhor rota:
+105.5132167339325
+teste 2
+custo: 167.76664535243822
+tempo primeira rota:
+1.5626544952392578
+tempo melhor rota:
+134.46197056770325
+teste 3
+custo: 132.46960162176998
+tempo primeira rota:
+5.374712705612183
+tempo melhor rota:
+59.60072708129883
+mapa 25
+teste 1
+custo: 111.57639877887542
+tempo primeira rota:
+1.484309196472168
+tempo melhor rota:
+178.057767868042
+teste 2
+custo: 106.47519891824706
+tempo primeira rota:
+0.06065058708190918
+tempo melhor rota:
+169.00682377815247
+teste 3
+custo: 114.24225970831546
+tempo primeira rota:
+5.810383558273315
+tempo melhor rota:
+126.956139087677
+mapa 26
+teste 1
+custo: 123.64996813440926
+tempo primeira rota:
+4.967783451080322
+tempo melhor rota:
+71.93613862991333
+teste 2
+custo: 128.1728017519756
+tempo primeira rota:
+2.4067113399505615
+tempo melhor rota:
+126.30147433280945
+teste 3
+custo: 137.53464473705867
+tempo primeira rota:
+1.3467776775360107
+tempo melhor rota:
+129.0944163799286
+mapa 27
+teste 1
+custo: 111.46582015651437
+tempo primeira rota:
+0.03473019599914551
+tempo melhor rota:
+100.99678158760071
+teste 2
+custo: 158.96816385034563
+tempo primeira rota:
+0.1688382625579834
+tempo melhor rota:
+177.20484161376953
+teste 3
+custo: 105.78349884584843
+tempo primeira rota:
+0.07234835624694824
+tempo melhor rota:
+93.46432423591614
+mapa 28
+teste 1
+custo: 124.48280415635303
+tempo primeira rota:
+0.11887335777282715
+tempo melhor rota:
+68.51609992980957
+teste 2
+custo: 111.094710653943
+tempo primeira rota:
+0.08616971969604492
+tempo melhor rota:
+0.32437634468078613
+teste 3
+custo: 119.55380194936632
+tempo primeira rota:
+7.447402477264404
+tempo melhor rota:
+164.48975729942322
+mapa 29
+teste 1
+custo: 146.72911697651026
+tempo primeira rota:
+0.07332277297973633
+tempo melhor rota:
+137.13699793815613
+teste 2
+custo: 157.06149689301407
+tempo primeira rota:
+7.705207586288452
+tempo melhor rota:
+117.6376895904541
+teste 3
+custo: 116.69874117016516
+tempo primeira rota:
+1.8395028114318848
+tempo melhor rota:
+160.36460089683533
+mapa 30
+teste 1
+custo: 179.51212171593727
+tempo primeira rota:
+1.0835280418395996
+tempo melhor rota:
+124.23802471160889
+teste 2
+custo: 127.40758063525438
+tempo primeira rota:
+6.345772743225098
+tempo melhor rota:
+161.38156151771545
+teste 3
+custo: 146.06318527645718
+tempo primeira rota:
+5.3005499839782715
+tempo melhor rota:
+131.2847330570221
+mapa 31
+teste 1
+custo: 129.98199642595526
+tempo primeira rota:
+10.142130136489868
+tempo melhor rota:
+169.3912386894226
+teste 2
+custo: 112.77769166708035
+tempo primeira rota:
+0.015128612518310547
+tempo melhor rota:
+0.015128612518310547
+teste 3
+custo: 149.4891961866352
+tempo primeira rota:
+0.11634206771850586
+tempo melhor rota:
+152.30166268348694
+mapa 32
+teste 1
+custo: 129.50650231656715
+tempo primeira rota:
+3.3183345794677734
+tempo melhor rota:
+109.66102504730225
+teste 2
+custo: 106.40879360580651
+tempo primeira rota:
+1.9846794605255127
+tempo melhor rota:
+111.16805672645569
+teste 3
+custo: 110.775304974418
+tempo primeira rota:
+1.438194990158081
+tempo melhor rota:
+149.69418358802795
+mapa 33
+teste 1
+custo: 144.63943817084433
+tempo primeira rota:
+15.41527795791626
+tempo melhor rota:
+118.99046015739441
+teste 2
+custo: 120.8100931031394
+tempo primeira rota:
+2.8251311779022217
+tempo melhor rota:
+149.07251453399658
+teste 3
+custo: 111.79701447745828
+tempo primeira rota:
+3.0872726440429688
+tempo melhor rota:
+132.97990918159485
+mapa 34
+teste 1
+custo: 156.71231873077386
+tempo primeira rota:
+3.7048096656799316
+tempo melhor rota:
+112.52574801445007
+teste 2
+custo: 152.75966164357442
+tempo primeira rota:
+0.20149636268615723
+tempo melhor rota:
+155.29415035247803
+teste 3
+custo: 357.1106870825913
+tempo primeira rota:
+7.22199559211731
+tempo melhor rota:
+82.97730255126953
+mapa 35
+teste 1
+custo: 130.92063214407818
+tempo primeira rota:
+5.374676942825317
+tempo melhor rota:
+111.77162146568298
+teste 2
+custo: 123.40356926153152
+tempo primeira rota:
+1.6741576194763184
+tempo melhor rota:
+174.13579320907593
+teste 3
+custo: 138.19674564313394
+tempo primeira rota:
+3.4799718856811523
+tempo melhor rota:
+126.6476697921753
+mapa 36
+teste 1
+custo: 133.2450595928774
+tempo primeira rota:
+0.14876961708068848
+tempo melhor rota:
+136.45682549476624
+teste 2
+custo: 109.87655719629673
+tempo primeira rota:
+4.82562255859375
+tempo melhor rota:
+98.11526489257812
+teste 3
+custo: 120.3092470420503
+tempo primeira rota:
+0.01968240737915039
+tempo melhor rota:
+4.237819194793701
+mapa 37
+teste 1
+custo: 109.45699317437514
+tempo primeira rota:
+0.14400410652160645
+tempo melhor rota:
+176.47945070266724
+teste 2
+custo: 117.69101519606745
+tempo primeira rota:
+13.983551979064941
+tempo melhor rota:
+137.5022714138031
+teste 3
+custo: 112.79324218981044
+tempo primeira rota:
+0.19243645668029785
+tempo melhor rota:
+46.452189683914185
+mapa 38
+teste 1
+custo: 223.52055641881518
+tempo primeira rota:
+1.7922828197479248
+tempo melhor rota:
+4.298070192337036
+teste 2
+custo: 170.91530516317303
+tempo primeira rota:
+2.868947982788086
+tempo melhor rota:
+132.22313284873962
+teste 3
+custo: 252.17993195315788
+tempo primeira rota:
+0.3982975482940674
+tempo melhor rota:
+99.56237864494324
+mapa 39
+teste 1
+custo: 146.895043582496
+tempo primeira rota:
+7.955384731292725
+tempo melhor rota:
+126.03442168235779
+teste 2
+custo: 138.03677144015035
+tempo primeira rota:
+4.49623966217041
+tempo melhor rota:
+97.40244126319885
+teste 3
+custo: 109.34275380644425
+tempo primeira rota:
+1.1601471900939941
+tempo melhor rota:
+12.824455976486206
+mapa 40
+teste 1
+custo: 174.35459919833534
+tempo primeira rota:
+1.0449244976043701
+tempo melhor rota:
+116.87850379943848
+teste 2
+custo: 109.13718602627748
+tempo primeira rota:
+0.019284486770629883
+tempo melhor rota:
+0.019284486770629883
+teste 3
+custo: 154.16166241818001
+tempo primeira rota:
+0.07404851913452148
+tempo melhor rota:
+110.0054976940155
+mapa 41
+teste 1
+custo: 130.25542783063094
+tempo primeira rota:
+9.848992347717285
+tempo melhor rota:
+63.127442359924316
+teste 2
+custo: 113.02705714717051
+tempo primeira rota:
+2.0762765407562256
+tempo melhor rota:
+169.4207854270935
+teste 3
+custo: 113.77923649771651
+tempo primeira rota:
+3.3798961639404297
+tempo melhor rota:
+113.24124550819397
+mapa 42
+teste 1
+custo: 111.11468543236568
+tempo primeira rota:
+2.2310147285461426
+tempo melhor rota:
+147.39082026481628
+teste 2
+custo: 237.29817448588014
+tempo primeira rota:
+3.443324327468872
+tempo melhor rota:
+19.05085825920105
+teste 3
+custo: 143.22535074479413
+tempo primeira rota:
+1.4999446868896484
+tempo melhor rota:
+63.730852365493774
+mapa 43
+teste 1
+custo: 118.55150427086733
+tempo primeira rota:
+2.7386891841888428
+tempo melhor rota:
+173.37872004508972
+teste 2
+custo: 105.82124819017324
+tempo primeira rota:
+0.21043610572814941
+tempo melhor rota:
+120.10083818435669
+teste 3
+custo: 105.05923552299299
+tempo primeira rota:
+0.5877127647399902
+tempo melhor rota:
+22.28681492805481
+mapa 44
+teste 1
+custo: 119.20946494972843
+tempo primeira rota:
+0.13658738136291504
+tempo melhor rota:
+39.02395439147949
+teste 2
+custo: 312.72399916059277
+tempo primeira rota:
+1.9416444301605225
+tempo melhor rota:
+173.80537152290344
+teste 3
+custo: 140.00182184942398
+tempo primeira rota:
+1.3998000621795654
+tempo melhor rota:
+145.80482697486877
+mapa 45
+teste 1
+custo: 116.15151343691699
+tempo primeira rota:
+0.3934030532836914
+tempo melhor rota:
+68.4691379070282
+teste 2
+custo: 153.57996415142918
+tempo primeira rota:
+17.133893489837646
+tempo melhor rota:
+139.0833911895752
+teste 3
+custo: 113.03027321822915
+tempo primeira rota:
+6.395871162414551
+tempo melhor rota:
+142.9112868309021

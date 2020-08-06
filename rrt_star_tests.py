@@ -10,7 +10,7 @@ GeoPoint = collections.namedtuple('GeoPoint', 'latitude, longitude, altitude')
 CartesianPoint = collections.namedtuple('CartesianPoint', 'x, y, z')
 
 #Mostra graficamente a rota e obstaculos se setado em True, caso contrário setar como False
-graph = True					
+graph = False					
 
 #Paarametros do algoritmo
 XDIM = 200
@@ -28,13 +28,12 @@ black = 20, 20, 40
 red = 255, 0, 0
 green = 15, 220, 182
 home = GeoPoint(-12.825397,-50.349937,0)
-execution_time = 10				#Duration of algorithym in seconds
+execution_time = 180			#Duration of algorithym in seconds
 
 
 
 
-#Escolha de que mapa será usado
-MAPNUMBER = "09"
+
 
 
 #Node class for rrt
@@ -80,11 +79,13 @@ def step_from_to(p1,p2):
 
 
 #main function that does the code
-def main():
+def main(num_map):
 
 	#gets obstacles from map file
-	map_file = "maps/"+MAPNUMBER+".sgl"
-	map_file = "JSON/map_"+MAPNUMBER+".json"
+	if num_map<10:
+		map_file = "JSON/map_0"+str(num_map)+".json"
+	else:
+		map_file = "JSON/map_"+str(num_map)+".json"
 	obstacles = map_json(map_file)
 
 	#Initializes start and end point
@@ -124,15 +125,15 @@ def main():
 			#print "obstacle = ",obstacles[i]
 			pygame.draw.polygon(screen,green,obs[i])
 		pygame.display.update()
-
+	first_time = 1000
 	init = time.time()
 	nodes = []
 	initNode = Node(initPoint,None,0)	#initializes initial node
 	bestNode = Node((0,0),None,9999999)	#initializes best node
 	node1 = Node((0,0),None,dist(initNode.get_point(),(0,0)))
 	nodes.append(initNode)				#Puts initial node in the start of the tree
-
-	for i in range(NUMNODES):
+	var = True
+	while var:
 		#rand = random.random()*XDIM*pos_neg() , random.random()*YDIM*pos_neg()
 		rand = (random.random()*XDIM*2)-XDIM , (random.random()*YDIM*2)-YDIM
 		nn = nodes[0]
@@ -152,19 +153,20 @@ def main():
 				colision = colision+1'''
 			if not_colides(node1.get_x(),node1.get_y(),obstacles[q]):
 				colision = colision+1
-				'''
-				if graph:
-					pygame.draw.line(screen,white,nn.get_point(),newnode)
-					pygame.display.update()'''
+
 		if colision >= len(obstacles):
 			nodes.append(node1)
 			if dist(node1.get_point(),goalPoint) < RADIUS:
 				if node1.get_cost()<bestNode.get_cost():
 					bestNode = node1
 					print("custo: "+str(bestNode.get_cost()))
-			'''if graph:
-				#pygame.draw.line(screen,white,(int(nn.get_x()+(XDIM)),int(nn.get_y()+(YDIM))),(int(newnode[0]+(XDIM)),int(newnode[1]+(YDIM))))
-				pygame.display.update()'''
+					print("tempo: "+str(time.time() - init))
+					if(first_time > (time.time()-init)):
+						first_time = time.time()-init
+						best_time = first_time
+					else:
+						best_time = time.time()-init
+
 		colision = 0
 
 		if graph:
@@ -174,47 +176,19 @@ def main():
 
 		fim = time.time()
 		if dist(bestNode.get_point(),goalPoint) < RADIUS and (fim-init)>execution_time:
-			
+			best_cost = bestNode.get_cost()+dist(bestNode.get_point(),goalPoint)
 			linhas = []
 			print("custo ideal: "+str(dist(initPoint,goalPoint)))
 			print("custo real: "+str(bestNode.get_cost()+dist(bestNode.get_point(),goalPoint)))
 			print("tempo de execucao: "+str(fim-init))
-			arquivo = open('Data/route'+MAPNUMBER+'.txt','w')
 			
-			text = "           x            y            \n"
-			arquivo.write(text)
-			if graph:
-				pygame.draw.line(screen,white,( int(bestNode.get_x()+XDIM),int(bestNode.get_y()+YDIM) ),(int(goalPoint[0]+XDIM),int(goalPoint[1]+YDIM))  )
-			
-			while bestNode.get_parent() != None:
 
-				point = CartesianPoint((bestNode.get_x()*SIZEX)+distx,(bestNode.get_y()*SIZEY)+disty,15)
-				text = str(round(point[1],9))+"  "+str(round(point[0],9))+"\n"
-				linhas.append(text)
-				result = []
-				result.append(point)
-				aux = bestNode.get_parent()
-				if graph:
-					if aux != None:
-						pygame.draw.line(screen,white,( int(bestNode.get_x()+XDIM),int(bestNode.get_y()+YDIM) ),(int(aux.get_x()+XDIM),int(aux.get_y()+YDIM))  )
-						pygame.display.update()
-				bestNode = bestNode.get_parent()
-			linhas.append(text)
-			if graph:
-				time.sleep(5)
-
-			for w in range(1,len(linhas)):
-				arquivo.write(linhas[len(linhas)-1-w])
-		
-			text = str(result[0][0])+"  "+str(result[0][1])
-			arquivo.close()
-		
-			break
+			return best_cost, first_time, best_time
 
 		#prints if path is not found in time
 		elif((fim-init)>execution_time):
 			print("Caminho não encontrado")
-			break
+			return -1,-1,-1
 
 
 #converts string to cartesian point
@@ -373,5 +347,23 @@ def vetor_normal(p1, p2):
 	return h
 
 if __name__ == '__main__':
-	main()
+	arquivo_dados = open('arquivo_de_dados.txt','r')
+	conteudo = arquivo_dados.readlines()
+	arquivo_dados = open('arquivo_de_dados.txt','w')
+	arquivo_dados.writelines(conteudo)
+	for n in range(46,51):
+		arquivo_dados.write('mapa '+str(n)+'\n')
+		for i in range(3):
+			arquivo_dados.write('teste '+str(i+1)+'\n')
+			dados = main(n)
+			print(dados)
+			arquivo_dados.write("custo: ")
+			arquivo_dados.write(str(dados[0])+"\n")
+			arquivo_dados.write("tempo primeira rota:\n")
+			arquivo_dados.write(str(dados[1])+"\n")
+			arquivo_dados.write("tempo melhor rota:\n")
+			arquivo_dados.write(str(dados[2])+"\n")
+
+
+	arquivo_dados.close()
 	
